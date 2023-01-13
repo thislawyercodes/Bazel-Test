@@ -9,7 +9,7 @@ import android.widget.TextView;
 /**
  * Main class for the Bazel Android "Hello, World" app.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompactActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -24,5 +24,14 @@ public class MainActivity extends Activity {
 
     // Bazel supports Java 8 language features like lambdas!
     clickMeButton.setOnClickListener(v -> helloBazelTextView.setText(greeter.sayHello()));
+
+  }
+  
+}
+public class MyViewModel extends ViewModel {
+  public final MutableLiveData<String> text = new MutableLiveData<>();
+  //initialize the data
+  public MyViewModel() {
+    text.setValue("Some text");
   }
 }
